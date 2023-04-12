@@ -10,19 +10,19 @@ import { Column, FillData } from '../types/dataTypes'
 export const SelectDefaultData: Column[] = [
     {
       selectName: 'UserId',
-      ColumnNames: ['#UserId'],
+      columnNames: ['#UserId'],
       enable: true,
       type: 'single',
     },
     {
       selectName: 'UserName',
-      ColumnNames: ['#UserName'],
+      columnNames: ['#UserName'],
       enable: true,
       type: 'single',
     },
     {
       selectName: 'date',
-      ColumnNames: ['StartDate', 'EndDate'],
+      columnNames: ['StartDate', 'EndDate'],
       enable: true,
       type: 'pair',
     },

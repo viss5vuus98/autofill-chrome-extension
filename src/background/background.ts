@@ -17,6 +17,7 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 })
 
+ //TODO: FILL DATA 格式有更新過，這邊需要測試,可能會有問題
 chrome.contextMenus.onClicked.addListener((info: chrome.contextMenus.OnClickData, tab: chrome.tabs.Tab) => {
   if(info.menuItemId !== 'autoFillBtn'){ return }
   chrome.tabs.query({active: true, lastFocusedWindow: true}, (tabs: chrome.tabs.Tab[]) => {

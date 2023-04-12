@@ -27,7 +27,7 @@ const FormSection = () => {
   const currentSelectData: Column[] = useSelector((state: any) => state.columns) ?? SelectDefaultData
   const [ currentColumn, setCurrentColumn ] = useState({
     selectName: '',
-    ColumnNames: [],
+    columnNames: [],
     enable: false,
     type: '',
   })

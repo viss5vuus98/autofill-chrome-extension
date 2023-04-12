@@ -55,7 +55,7 @@ const SetValueSection = (props: SetValueSectionProps) => {
     
     console.log('confirm')
     const updateData: FillData[] = fillDataList.map((item) => {
-      selectValue.ColumnNames.map((colName) => {
+      selectValue.columnNames.map((colName) => {
         if(item.key === colName){
           item.value = inputValues[colName]
         }
@@ -73,7 +73,7 @@ const SetValueSection = (props: SetValueSectionProps) => {
   useEffect(() => {
     const newInputValues: InputValues = {}
     fillDataList.forEach((item) => {
-      selectValue.ColumnNames.forEach((colName) => {
+      selectValue.columnNames.forEach((colName) => {
         if(item.key === colName){
           newInputValues[colName] = item.value
         }
@@ -92,11 +92,11 @@ const SetValueSection = (props: SetValueSectionProps) => {
         >
           <TextField
           id="target-set"
-          label={selectValue.ColumnNames[0]}
+          label={selectValue.columnNames[0]}
           variant="outlined"
           fullWidth
-          onChange={(e) => { handleChangeTextField(e.target.value, selectValue.ColumnNames[0]) }}
-          value={inputValues[selectValue.ColumnNames[0]] ?? ''}
+          onChange={(e) => { handleChangeTextField(e.target.value, selectValue.columnNames[0]) }}
+          value={inputValues[selectValue.columnNames[0]] ?? ''}
           inputRef={firInputRef}
           />
         </Box>
@@ -121,21 +121,21 @@ const SetValueSection = (props: SetValueSectionProps) => {
         >
           <TextField 
           id="target-set-first" 
-          label={selectValue.ColumnNames[0]}
+          label={selectValue.columnNames[0]}
           variant="outlined" 
           fullWidth 
-          onChange={(e) => { handleChangeTextField(e.target.value, selectValue.ColumnNames[0]) }}
-          value={inputValues[selectValue.ColumnNames[0]] ?? ''}
+          onChange={(e) => { handleChangeTextField(e.target.value, selectValue.columnNames[0]) }}
+          value={inputValues[selectValue.columnNames[0]] ?? ''}
           inputRef={firInputRef}
           />
           |
           <TextField 
           id="target-set-second" 
-          label={selectValue.ColumnNames[1]}
+          label={selectValue.columnNames[1]}
           variant="outlined" 
           fullWidth 
-          onChange={(e) => { handleChangeTextField(e.target.value, selectValue.ColumnNames[1]) }}
-          value={inputValues[selectValue.ColumnNames[1]] ?? ''}
+          onChange={(e) => { handleChangeTextField(e.target.value, selectValue.columnNames[1]) }}
+          value={inputValues[selectValue.columnNames[1]] ?? ''}
           inputRef={secInputRef}
           />               
         </Box>
