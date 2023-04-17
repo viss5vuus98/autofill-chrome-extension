@@ -127,7 +127,9 @@ const SetValueSection = (props: SetValueSectionProps) => {
           value={inputValues[selectValue.columnNames[0]] ?? ''}
           inputRef={firInputRef}
           />
-          |
+          <Box sx={{ marginY: 2, textAlign: 'center' }}>
+            |
+          </Box>
           <TextField 
           id="target-set-second" 
           label={selectValue.columnNames[1]}

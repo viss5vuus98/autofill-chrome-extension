@@ -64,7 +64,7 @@ const EnablePanel: React.FC = () => {
 
 
   return (
-      <Paper sx={{ pl: 2, pr: 1, display: 'flex', alignItems: 'center' }}>
+      <Paper sx={{ p: 2, display: 'flex', alignItems: 'start', height: '100%', minHeight: '400px' }} elevation={3}>
         <Grid container spacing={1}>
           {rowList}             
         </Grid>            

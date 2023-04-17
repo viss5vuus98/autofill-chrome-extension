@@ -136,7 +136,7 @@ const BasicTab = () => {
     <Box
       sx={
         {
-          marginBottom: 3
+          marginBottom: 0
         }
       }
     >
@@ -161,11 +161,11 @@ const BasicTab = () => {
       </Tabs>
     </Box>
     {/* */}
-    <TabPanel value={currentPage} index={0} >
+    <TabPanel value={currentPage} index={0}>
       <Box
         sx={
           {
-            marginBottom: 3
+            paddingY: 2,
           }
         }
       >
@@ -174,12 +174,26 @@ const BasicTab = () => {
       </Box>
     </TabPanel>
     <TabPanel value={currentPage} index={1}>
-      <Box>
+      <Box
+        sx={
+          {
+            pt: 1,
+            pb: 2,
+          }
+        }      
+      >
         <AddPanel/>
       </Box>
     </TabPanel>
     <TabPanel value={currentPage} index={2}>
-      <Box>
+      <Box
+        sx={
+          {
+            pt: 1,
+            pb: 2,
+          }
+        }      
+      >
         <EnablePanel/>
       </Box>
     </TabPanel>    

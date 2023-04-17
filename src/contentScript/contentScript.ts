@@ -19,10 +19,10 @@ const autoFillInput = (data: FillData[]): void => {
   const inputArray : any[] = [ ...inputList ]
   //把值塞進對應的Input（這裡是針對沒有ID的處理）
   inputArray.forEach((item : any,): void => {
-    //if Column is disabled then return
-    if(item.enabled === false){ return }
     //if e.name includes data.key then e.value set to data.value
     data.forEach((d: FillData) => {
+      //if Column is disabled then return
+      if(d.enable === false){ return }
       if(item.name.includes(d.key)){
         item.value = d.value
       }

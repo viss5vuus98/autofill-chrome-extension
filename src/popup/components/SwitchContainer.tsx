@@ -26,6 +26,7 @@ const SwitchContainer: React.FC<EnableProp> = (props: EnableProp) => {
         <Grid item xs={12}>
           <Box sx={{
             width: '100%',
+            mb: 1,
             display: 'flex',
             justifyContent: 'space-evenly',
             alignItems: 'center',

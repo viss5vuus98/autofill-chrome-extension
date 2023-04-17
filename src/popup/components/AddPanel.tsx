@@ -142,8 +142,8 @@ const AddPanel: React.FC = () => {
     })
   }
   return (
-    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: 240 }}>
-      <Grid container spacing={2}>
+    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: '100%' }} elevation={3}>
+      <Grid container spacing={1}>
         <FormRow id={'columnType'} selectName={'欄位類型'} selectItems={[{key:'單欄', value:'single'}, {key:'雙欄', value:'pair'}]} onFormRowChange={onFormRowChange} value={formData.columnType}/>
         <FormRow id={'getType'} selectName={'綁定方式'} selectItems={[{key:'Name', value:'name'}]} onFormRowChange={onFormRowChange} value={formData.getType}/>
         <Grid item xs={12}>
@@ -170,7 +170,9 @@ const AddPanel: React.FC = () => {
           </Grid>   
         }         
         <Grid item xs={12}>
-          <Button variant="contained" size={'small'} onClick={handleConfirm}>Confirm</Button>
+          <Box sx={{display: 'flex',justifyContent: 'center', marginY: 1}}>
+            <Button variant="contained" size={'small'} onClick={handleConfirm}>Confirm</Button>
+          </Box>
         </Grid>
       </Grid>
     </Paper>
