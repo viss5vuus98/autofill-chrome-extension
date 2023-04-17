@@ -22,22 +22,11 @@ const autoFillInput = (data: FillData[]): void => {
     //if Column is disabled then return
     if(item.enabled === false){ return }
     //if e.name includes data.key then e.value set to data.value
-    const targetElementPattern: RegExp = new RegExp(`^${item.name}$`)
     data.forEach((d: FillData) => {
-      if(targetElementPattern.test(d.key)){
+      if(item.name.includes(d.key)){
         item.value = d.value
       }
     })
-    // const targetName: string = e.name
-    // //檢查每一個name
-    // if(targetName.includes('StartDate')){
-    //   //符合這邊塞值進去
-    //   //TODO:要塞入的資料可以讓user自己填入，資料存background.ts
-    //   e.value = '111/09/09'
-    // }
-    // if(targetName.includes('EndDate')){
-    //   e.value = '112/03/14'
-    // }
   })
 }
 
