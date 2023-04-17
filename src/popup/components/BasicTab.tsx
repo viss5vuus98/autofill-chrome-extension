@@ -8,14 +8,15 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
-import SetValueSection from './SetValueSection'
-import { Column } from '../../types/dataTypes'
+import { Column, FillData } from '../../types/dataTypes'
 import { useDispatch, useSelector } from 'react-redux'
 import { SelectDefaultData, FillDefaultData } from '../../utils/template'
-import { setSelectData } from '.././action/selectAction'
-import { getColumnsData, getStorage } from '../../utils/storage'
-import { loadAllFillData } from '.././action/fillDataAction'
-
+import { setSelectData } from '../action/selectAction'
+import { setColumnsData, getColumnsData, getStorage, setStorage } from '../../utils/storage'
+import { loadAllFillData } from '../action/fillDataAction'
+import SetValueSection from './SetValuePanel'
+import EnablePanel from './EnablePanel'
+import AddPanel from './AddPanel'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -103,23 +104,27 @@ const BasicTab = () => {
   //if not first render not do this useEffect
   useEffect(() => {
     getColumnsData().then((res: Array<Column>) => {
-      //check res has data
-      //if not set default value to redux
+      //check res has data ,if not set default value to redux
+      const selectData: Column[] = res
+      dispatch(setSelectData(selectData))
       if(res.length <= 0){
-        console.log("default", SelectDefaultData)
         dispatch(setSelectData(SelectDefaultData))
+        setColumnsData(SelectDefaultData)
       }else {
-        console.log("ChromeStorage DATA", res)
-        dispatch(setSelectData(res))
+        dispatch(setSelectData(selectData))
       }
     })
   }, [])
 
   useEffect(() => {
     getStorage().then((res) => {
-      const fillData = res ?? FillDefaultData
-      console.log('first load fill data', fillData)
-      dispatch(loadAllFillData(fillData))
+      const fillData: FillData[] = res
+      if(res.length <= 0){
+        dispatch(loadAllFillData(FillDefaultData))
+        setStorage(FillDefaultData)
+      }else {
+        dispatch(loadAllFillData(fillData))
+      }
     })
   }, [])
   const handleTabsClick = (index: number) => {
@@ -169,13 +174,13 @@ const BasicTab = () => {
       </Box>
     </TabPanel>
     <TabPanel value={currentPage} index={1}>
-            <Box>
-        item1
+      <Box>
+        <AddPanel/>
       </Box>
     </TabPanel>
     <TabPanel value={currentPage} index={2}>
       <Box>
-        Enable
+        <EnablePanel/>
       </Box>
     </TabPanel>    
     </>

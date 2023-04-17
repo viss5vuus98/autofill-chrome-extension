@@ -18,15 +18,16 @@ const autoFillInput = (data: FillData[]): void => {
   //淺拷貝到陣列中
   const inputArray : any[] = [ ...inputList ]
   //把值塞進對應的Input（這裡是針對沒有ID的處理）
-  inputArray.forEach((e : any, i : number): void => {
+  inputArray.forEach((item : any,): void => {
+    //if Column is disabled then return
+    if(item.enabled === false){ return }
     //if e.name includes data.key then e.value set to data.value
+    const targetElementPattern: RegExp = new RegExp(`^${item.name}$`)
     data.forEach((d: FillData) => {
-      if(e.name.includes(d.key)){
-        e.value = d.value
+      if(targetElementPattern.test(d.key)){
+        item.value = d.value
       }
     })
-
-
     // const targetName: string = e.name
     // //檢查每一個name
     // if(targetName.includes('StartDate')){
@@ -42,7 +43,7 @@ const autoFillInput = (data: FillData[]): void => {
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if(request.getAutoFill){
-    console.log('Fill Selected Input !', request.data)
-    autoFillInput(request.data)
+    console.log('Fill Selected Input !', request.fillData)
+    autoFillInput(request.fillData)
   }
 })

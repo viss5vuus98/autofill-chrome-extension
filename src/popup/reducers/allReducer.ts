@@ -14,9 +14,7 @@ const selectReducer = (state: Column[] = initialState.columns, action: any) => {
     case "SELECT_DELETE":
       return state;
     case "SELECT_UPDATE":
-      return state;
-    case "SELECT_ENABLE":
-      return state;
+      return [ ...action.data ];
     case "SET_SELECT_DATA":      
       return [ ...action.data ]
     default:

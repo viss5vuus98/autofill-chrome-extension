@@ -1,9 +1,9 @@
 import { getStorage } from '../utils/storage'
 import { FillData } from '../types/dataTypes'
 
-// TODO: background script
+// background script
 chrome.runtime.onInstalled.addListener(() => {
-  // TODO: on installed function
+  // on installed function
   console.log('autofill-extension on installed')
   chrome.contextMenus.create({
     id: 'autoFillBtn',
@@ -26,9 +26,9 @@ chrome.contextMenus.onClicked.addListener((info: chrome.contextMenus.OnClickData
     }
 
     getStorage().then((res: FillData[]) => {
-      console.log("res:",res)
+      console.log("Get ChromeStorage FillData:",res)
       const target: number = tabs[0].id
-      chrome.tabs.sendMessage(target, {getAutoFill: true, data: res});
+      chrome.tabs.sendMessage(target, {getAutoFill: true, fillData: res});
     })
   });
   //const response = chrome.tabs.sendMessage(tab.id, {getAutoFill: true});

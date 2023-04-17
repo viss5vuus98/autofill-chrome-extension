@@ -3,10 +3,9 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import { useState, useEffect, useRef } from 'react'
-import Box from '@mui/material/Box';
-import React from 'react'
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import React, { useState, useEffect, useRef } from 'react'
 import { setStorage } from '../../utils/storage'
 import { Column, FillData, AllState } from '../../types/dataTypes'
 import { useSelector, useDispatch } from 'react-redux'

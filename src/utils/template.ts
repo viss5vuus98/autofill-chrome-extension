@@ -30,19 +30,27 @@ export const SelectDefaultData: Column[] = [
 
 export const FillDefaultData: FillData[] = [
     {
+      root: 'UserId',
       key: '#UserId',
       value: '1',
+      enable: true,
     },
     {
+      root: 'UserName',
       key: '#UserName',
       value: 'SODADM',
+      enable: true,
     },
     {
+      root: 'date',
       key: 'StartDate',
       value: '2020/01/01',
+      enable: true,
     },
     {
+      root: 'date',
       key: 'EndDate',
       value: '2020/01/01',
+      enable: true,      
     },
 ]

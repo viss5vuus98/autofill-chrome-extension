@@ -1,3 +1,5 @@
+import { Column } from '../../types/dataTypes';
+
 export const selectAdd = () => {
   return {
     type: 'SELECT_ADD',
@@ -11,12 +13,10 @@ export const selectDelete = (index: number) => {
   };
 }
 
-export const selectUpdate = (index: number, key: string, value: string) => {
+export const selectUpdate = (data: Column[]) => {
   return {
     type: 'SELECT_UPDATE',
-    index,
-    key,
-    value,
+    data,
   };
 }
 
@@ -28,7 +28,7 @@ export const selectEnable = (index: number, enable: boolean) => {
   };
 }
 
-export const setSelectData = (data: any) => {
+export const setSelectData = (data: Column[]) => {
   return {
     type: 'SET_SELECT_DATA',
     data,

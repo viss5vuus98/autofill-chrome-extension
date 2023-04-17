@@ -19,12 +19,13 @@ export function setStorage(data: FillData[]): Promise<void> {
 export function getStorage(): Promise<FillData[]> {
   return new Promise((resolve) => {
     chrome.storage.local.get(['data'], (res: localStorageData) => {
-      resolve(res.data)
+      const fillData: FillData[] = res.data ? res.data : []
+      resolve(fillData)
     })
   })
 }
 
-export function setColumnsData(data: Array<Column>): Promise<void> {
+export function setColumnsData(data: Column[]): Promise<void> {
   return new Promise((resolve) => {
     chrome.storage.local.set({ columns: data } , () => {
       resolve();
@@ -32,12 +33,12 @@ export function setColumnsData(data: Array<Column>): Promise<void> {
   })
 }
 
-export function getColumnsData(): Promise<Array<Column>> {
+export function getColumnsData(): Promise<Column[]> {
   return new Promise((resolve) => {
     chrome.storage.local.get(['columns'], (res) => {
-      const columnsData = res.columns ? res.columns : []
-      console.log('res:', columnsData)
+      const columnsData: Column[] = res.columns ? res.columns : []
       resolve(columnsData)
     })
   })
 }
+

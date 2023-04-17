@@ -4,8 +4,10 @@
 //Key: 目標的欄位名稱
 //Value: 要填入的資料
 export interface FillData {
-  key?: string;
-  value?: string;
+  root: string;
+  key: string;
+  value: string;
+  enable: boolean;
 }
 
 //欄位類型
@@ -24,3 +26,11 @@ export interface AllState {
   columns: Column[];
   fillData: FillData[];
 }
+
+//新增欄位的表單
+export interface CreateColumnForm {
+  selectName: string;
+  selectItem: string[];
+  id: number;
+}
+
