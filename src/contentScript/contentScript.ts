@@ -8,7 +8,6 @@ import { FillData } from '../types/dataTypes'
    }
  })
 
- //TODO: FILL DATA 格式有更新過，這邊需要測試,可能會有問題
 //取出畫面上取出畫面上所有Input
 const autoFillInput = (data: FillData[]): void => {
   const inputList :NodeList = document.querySelectorAll('input')

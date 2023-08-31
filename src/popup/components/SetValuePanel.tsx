@@ -11,6 +11,19 @@ import { Column, FillData, AllState } from '../../types/dataTypes'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateFillData } from '../action/fillDataAction';
 
+//從Chrome Storage中取得Template的資料()，若沒有，則取得SelectDefaultData的資料
+//(計畫)顯示所有select Name在Select中
+//選擇select Name後，顯示對應的Column Name
+//依據Column Name顯示對應的Value
+
+//輸入Value後，按下Confirm，以selectData的格式，key為select Name，value為Value，存入Chrome Storage中
+//若已經有相同的key，則更新value
+//若沒有相同的key，則新增一筆資料
+//每次有修改時，都要更新localStorageData中相同Key的selectData的value
+//並且將localStorageData存入Chrome Storage中
+
+//contextMenus.onClicked事件觸發時，使用getStorage()取得資料，並將資料填入對應的欄位中
+
 interface SetValueSectionProps {
   selectValue: Column
 }
@@ -51,8 +64,7 @@ const SetValueSection = (props: SetValueSectionProps) => {
         return
       }
     } 
-    
-    console.log('confirm')
+
     const updateData: FillData[] = fillDataList.map((item) => {
       selectValue.columnNames.map((colName) => {
         if(item.key === colName){
@@ -61,7 +73,7 @@ const SetValueSection = (props: SetValueSectionProps) => {
       })
       return item
     })
-    console.log("updateData", updateData)
+
     if(updateData.length > 0){
       setStorage(updateData)
       dispatch(updateFillData(updateData))
@@ -155,17 +167,3 @@ const SetValueSection = (props: SetValueSectionProps) => {
 }
 
 export default SetValueSection
-
-
-//從Chrome Storage中取得Template的資料()，若沒有，則取得SelectDefaultData的資料
-//(計畫)顯示所有select Name在Select中
-//選擇select Name後，顯示對應的Column Name
-//依據Column Name顯示對應的Value
-
-//輸入Value後，按下Confirm，以selectData的格式，key為select Name，value為Value，存入Chrome Storage中
-//若已經有相同的key，則更新value
-//若沒有相同的key，則新增一筆資料
-//每次有修改時，都要更新localStorageData中相同Key的selectData的value
-//並且將localStorageData存入Chrome Storage中
-
-//contextMenus.onClicked事件觸發時，使用getStorage()取得資料，並將資料填入對應的欄位中

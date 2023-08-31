@@ -10,6 +10,8 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import  allReducer  from './reducers/allReducer'
 
+//進入點
+
 let store = createStore(allReducer)
 
 const App: React.FC<{}> = () => {

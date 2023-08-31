@@ -24,6 +24,7 @@ interface TabPanelProps {
   index: Number;
 };
 
+//第一頁
 const FormSection = () => {
   const currentSelectData: Column[] = useSelector((state: any) => state.columns) ?? SelectDefaultData
   const [ currentColumn, setCurrentColumn ] = useState({
@@ -93,6 +94,8 @@ const TabPanel = (props: TabPanelProps) => {
 //     </section>
 //   )
 // }
+
+//畫面組件, 控制Tab切換
 
 const BasicTab = () => {
   const [ currentPage, setCurrentPage ] = useState(0)

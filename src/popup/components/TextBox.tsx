@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FormHelperText from '@mui/material/FormHelperText';
-import { SelectChangeEvent } from '@mui/material';
 
 interface TextBoxProps {
   id: string;

@@ -1,11 +1,8 @@
 import * as React from 'react';
 import IOSSwitch from './Switch';
 
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 interface EnableProp {
